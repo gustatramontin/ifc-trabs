@@ -5,7 +5,10 @@ int main() {
 
 	int db;
 	scanf("%d", &db);
-
+	if (db > 130 || db < 40) {
+		printf("Invalid sound level, should be in the 40-130 decibeis range");
+		return 0;
+	}
 	int niveis[] = {40, 70, 106, 130};
 
 	int closest;
@@ -13,13 +16,13 @@ int main() {
 	int closest_2nd;
 
 	for (int i=0; i<4; i++) {
-		if (abs(db - niveis[i]) < closest_val) {
+		if (abs(db - niveis[i]) < abs( db - closest_val)) {
 			closest = i;
 			closest_val = niveis[i];
 		}
 	}
 
-	closest_2nd = closest != 3 ? closest+1 : closest -1;
+	closest_2nd = db > niveis[closest] ? closest+1 : closest-1;
 
 	char* noises[] = {"Sala Silenciosa", "Despertador", "Cortador de Grama", "Britateira"};
 
@@ -28,6 +31,6 @@ int main() {
 		return 0;
 	}
 
-	printf("Barulho entre %s e %s", closest, closest_2nd);
+	printf("Barulho entre %s e %s", noises[closest], noises[closest_2nd]);
 	return 0;
 }
