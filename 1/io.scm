@@ -11,7 +11,7 @@
 
 (define-syntax indef->number
     (syntax-rules ()
-      ((_ indentifie prompt)
+      ((_ indentifier prompt)
         (define indentifier (input->number prompt)))))
 
 (define (2casas number)

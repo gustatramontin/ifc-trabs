@@ -1,0 +1,11 @@
+
+(display "1\t 2\t 3\t 4\t 5\t 6\t 7\t 8\t 9\t 10")
+(newline)
+(for i in '(1 2 3 4 5 6 7 8 9 10)
+     (display i)
+     (display "\t")
+     (for j in '(1 2 3 4 5 6 7 8 9 10)
+          (display (* i j))
+          (display "\t")
+     )
+     (newline ))
